@@ -1,0 +1,25 @@
+# InduCore Monorepo Codeowners
+
+# Global Owners
+* @inducore/core-architects @inducore/lead-engineers
+
+# Infrastructure & DevOps
+/infrastructure/ @inducore/devops-team
+/.github/ @inducore/devops-team
+
+# Core Domain Packages (DDD)
+/packages/core-domain/ @inducore/domain-experts @inducore/core-architects
+/packages/application/ @inducore/core-architects
+/packages/infrastructure/ @inducore/backend-leads
+
+# Shared UI & Frontend Apps
+/packages/ui-kit/ @inducore/frontend-leads
+/apps/web-portal/ @inducore/frontend-leads
+
+# API Gateway & Backend Apps
+/apps/api-gateway/ @inducore/backend-leads
+/apps/background-worker/ @inducore/backend-leads
+
+# Security & Governance Docs
+/docs/security/ @inducore/security-team
+SECURITY.md @inducore/security-team

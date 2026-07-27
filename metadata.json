@@ -1,0 +1,6 @@
+{
+  "name": "InduCore Architecture Repository",
+  "description": "InduCore enterprise engineering repository specifications, domain models, and monorepo structure.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

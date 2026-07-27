@@ -1,0 +1,25 @@
+{
+  "name": "@inducore/api-gateway",
+  "version": "2.0.0",
+  "private": true,
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "tsx src/index.ts",
+    "build": "tsc -b",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "@inducore/application": "workspace:*",
+    "@inducore/core-domain": "workspace:*",
+    "@inducore/infrastructure": "workspace:*",
+    "@inducore/logger": "workspace:*",
+    "cors": "^2.8.5",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.3"
+  }
+}
