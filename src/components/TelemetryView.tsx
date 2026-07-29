@@ -1,6 +1,5 @@
 import React from 'react';
 import { Card, Badge } from '@inducore/ui-kit';
-import { Cpu, Activity, AlertOctagon, RefreshCw } from 'lucide-react';
 
 export const TelemetryView: React.FC = () => {
   const sensors = [

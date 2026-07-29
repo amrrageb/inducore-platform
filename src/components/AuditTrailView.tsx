@@ -1,6 +1,6 @@
 import React from 'react';
-import { Card, Badge } from '@inducore/ui-kit';
-import { ShieldCheck, Lock, FileCode2 } from 'lucide-react';
+import { Card } from '@inducore/ui-kit';
+import { ShieldCheck } from 'lucide-react';
 
 export const AuditTrailView: React.FC = () => {
   const auditLogs = [

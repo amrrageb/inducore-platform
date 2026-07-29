@@ -1,9 +1,22 @@
-# Infrastructure Package (`@inducore/infrastructure`)
+# Package: Infrastructure Layer (`packages/infrastructure`)
 
-This package implements concrete repository adapters, database migration scripts, messaging publishers (Kafka/Redis), and external AI gateways (`@google/genai`) for the InduCore platform.
+## Overview
+The `@inducore/infrastructure` package implements database adapters, ORM mappings, external API integration clients, and messaging handlers.
 
-## 🏛️ Infrastructure Rules
+## Dependency Rules
+- Implements port interfaces defined in `@inducore/application`.
+- Depends on `@inducore/core-domain`, `@inducore/application`, and `@inducore/shared`.
 
-1. **Implements Application Ports**: Implements `IRFQRepository`, `IEventOutboxPublisher`, and `IGeminiAIService` defined in `@inducore/application`.
-2. **Tenant Isolation**: All SQL queries explicitly set or check `tenant_id` for PostgreSQL Row-Level Security (RLS).
-3. **Server-Side Gemini SDK**: Wraps `@google/genai` securely on the backend without leaking keys to client bundles.
+## Folder Structure
+```
+packages/infrastructure/
+├── src/
+│   ├── persistence/   # Database repositories and adapters
+│   ├── messaging/     # Outbox & event publishers
+│   └── index.ts       # Public exports
+├── package.json
+├── tsconfig.json
+├── .eslintrc.json
+├── vitest.config.ts
+└── README.md
+```

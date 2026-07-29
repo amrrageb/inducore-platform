@@ -1,0 +1,22 @@
+{
+  "name": "@inducore/contracts",
+  "version": "2.0.0",
+  "private": true,
+  "description": "InduCore Integration Contracts, DTO Envelopes, and Event Schemas",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint \"src/**/*.ts\"",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "eslint": "^8.56.0",
+    "typescript": "^5.3.3",
+    "vitest": "^1.2.0"
+  },
+  "dependencies": {
+    "zod": "^4.4.3"
+  }
+}

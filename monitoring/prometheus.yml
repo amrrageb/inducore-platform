@@ -1,0 +1,20 @@
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+  external_labels:
+    environment: 'production'
+    cluster: 'inducore-europe-west2'
+
+scrape_configs:
+  - job_name: 'inducore-api-gateway'
+    metrics_path: '/v1/devops/prometheus-metrics'
+    static_configs:
+      - targets: ['localhost:3000']
+
+  - job_name: 'postgresql-cloudsql'
+    static_configs:
+      - targets: ['cloudsql-exporter:9187']
+
+  - job_name: 'kafka-outbox-worker'
+    static_configs:
+      - targets: ['kafka-exporter:9308']

@@ -1,7 +1,8 @@
 import { RFQAggregate } from '@inducore/core-domain';
 
 export interface IRFQRepository {
-  findById(id: string, tenantId: string): Promise<RFQAggregate | null>;
+  findById(id: string): Promise<RFQAggregate | null>;
+  findAll(filter?: { status?: string; visibility?: string }): Promise<RFQAggregate[]>;
   save(rfq: RFQAggregate): Promise<void>;
-  listByTenant(tenantId: string): Promise<RFQAggregate[]>;
+  delete(id: string): Promise<void>;
 }

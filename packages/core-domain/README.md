@@ -1,17 +1,22 @@
-# Core Domain Package (`@inducore/core-domain`)
+# Package: Core Domain (`packages/core-domain`)
 
-This package contains the pure, framework-agnostic Domain Layer for the InduCore platform, adhering strictly to Domain-Driven Design (DDD) principles.
+## Overview
+The `@inducore/core-domain` package contains pure Domain Entities, Aggregates, Value Objects, and Domain Events according to Domain-Driven Design (DDD) principles.
 
-## 🏛️ DDD Layering & Rules
+## Dependency Rules
+- ZERO external npm dependencies (except pure math/date utilities).
+- No database ORMs, HTTP frameworks, or UI state.
 
-1. **Zero External Dependencies**: Contains zero HTTP frameworks, ORM libraries, or database drivers.
-2. **Aggregates & Entities**: Encapsulates business invariants and state transitions.
-3. **Value Objects**: Immutable domain primitives (`Money`, `SKU`, `TenantId`).
-4. **Domain Events**: Dispatched whenever aggregate state updates occur (`RFQCreatedEvent`, `BidSubmittedEvent`).
-
-## 📦 Directory Structure
-
-- `src/common/`: Base building blocks (`AggregateRoot`, `Entity`, `ValueObject`, `Result`, `Guard`).
-- `src/procurement/`: RFQ Aggregate, Supplier Bids, Line Items, and Procurement Events.
-- `src/inventory/`: Part Stock Aggregate, SKU Value Object, and Inventory Events.
-- `src/identity/`: Multi-tenant identity primitives.
+## Folder Structure
+```
+packages/core-domain/
+├── src/
+│   ├── common/        # Core DDD base building blocks (AggregateRoot, Entity, ValueObject)
+│   ├── example/       # Pure example domain aggregate
+│   └── index.ts       # Public exports
+├── package.json
+├── tsconfig.json
+├── .eslintrc.json
+├── vitest.config.ts
+└── README.md
+```

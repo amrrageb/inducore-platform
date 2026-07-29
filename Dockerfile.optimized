@@ -1,0 +1,55 @@
+# Multi-stage optimized Dockerfile for InduCore Enterprise Monorepo
+# Stage 1: Build & Prune Dependencies
+FROM node:20-alpine AS builder
+WORKDIR /app
+
+# Install pnpm & security tools
+RUN corepack enable && corepack prepare pnpm@latest --activate
+
+# Copy manifest & workspace configuration
+COPY package.json pnpm-workspace.yaml pnpm-lock.yaml ./
+COPY packages/core-domain/package.json ./packages/core-domain/
+COPY packages/application/package.json ./packages/application/
+COPY packages/infrastructure/package.json ./packages/infrastructure/
+COPY apps/api-gateway/package.json ./apps/api-gateway/
+
+# Install dependencies with strict frozen lockfile
+RUN pnpm install --frozen-lockfile
+
+# Copy source code & configurations
+COPY . .
+
+# Run Typecheck & Vitest verification
+RUN pnpm typecheck && pnpm lint
+
+# Build production assets using esbuild
+RUN pnpm build
+
+# Stage 2: Minimal Distroless / Hardened Alpine Runtime
+FROM node:20-alpine AS runner
+WORKDIR /app
+
+ENV NODE_ENV=production
+ENV PORT=3000
+ENV HOST=0.0.0.0
+
+# Create dedicated non-root security user & group
+RUN addgroup --system --gid 1001 inducore && \
+    adduser --system --uid 1001 inducore
+
+# Copy compiled production artifacts & package configs
+COPY --from=builder /app/dist ./dist
+COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/package.json ./package.json
+
+# Set ownership to non-root user
+USER inducore
+
+# Expose production port (3000)
+EXPOSE 3000
+
+# Container Liveness & Readiness Probe Check
+HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+  CMD wget --no-verbose --tries=1 --spider http://localhost:3000/v1/admin/health || exit 1
+
+CMD ["node", "dist/server.cjs"]

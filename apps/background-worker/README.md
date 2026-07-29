@@ -1,3 +1,20 @@
-# Background Worker Application (`apps/background-worker`)
+# Application: Background Worker (`apps/background-worker`)
 
-Asynchronous worker service polling Outbox events, executing telemetry threshold checks, and scheduling background jobs.
+## Overview
+The `background-worker` application processes asynchronous outbox messages, scheduled background tasks, and event dispatching.
+
+## Dependency Rules
+- Imports `@inducore/application`, `@inducore/infrastructure`, `@inducore/logger`, and `@inducore/shared`.
+
+## Folder Structure
+```
+apps/background-worker/
+├── src/
+│   ├── consumers/     # Event consumers & outbox relay handlers
+│   └── index.ts       # Worker process entrypoint
+├── package.json
+├── tsconfig.json
+├── .eslintrc.json
+├── vitest.config.ts
+└── README.md
+```

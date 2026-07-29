@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Badge } from '@inducore/ui-kit';
-import { Sparkles, CheckCircle2, ShieldCheck, Cpu, AlertTriangle } from 'lucide-react';
+import { Sparkles } from 'lucide-react';
 
 interface AIEvaluationModalProps {
   rfqId: string;

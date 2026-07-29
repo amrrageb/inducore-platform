@@ -1,6 +1,6 @@
 {
   "name": "InduCore Architecture Repository",
-  "description": "InduCore enterprise engineering repository specifications, domain models, and monorepo structure.",
+  "description": "InduCore enterprise engineering repository with administration control plane, company settings, feature flags, RBAC roles & permissions, API keys & webhooks management, background job queue monitor, system health telemetry, executive analytics dashboard, and Industrial AI Assistant RAG engine.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

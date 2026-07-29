@@ -18,7 +18,10 @@
       "@inducore/application": ["./packages/application/src/index.ts"],
       "@inducore/infrastructure": ["./packages/infrastructure/src/index.ts"],
       "@inducore/ui-kit": ["./packages/ui-kit/src/index.ts"],
-      "@inducore/logger": ["./packages/logger/src/index.ts"]
+      "@inducore/logger": ["./packages/logger/src/index.ts"],
+      "@inducore/shared": ["./packages/shared/src/index.ts"],
+      "@inducore/contracts": ["./packages/contracts/src/index.ts"],
+      "@inducore/config": ["./packages/config/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "dist", "coverage"]
